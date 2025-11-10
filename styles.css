@@ -1,0 +1,33 @@
+.calculator {
+    background-color:gray;
+    width: auto;
+    margin: 20px;
+    margin-top:20px;
+   
+    
+}
+
+.calculator-screen {
+    border-radius: 8px;
+    background-color:white;
+    text-align:right;
+    border:solid;
+    margin:2px;
+    margin-bottom:10px;
+    height:60px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 12px;
+}
+.calculator-numpad {
+    border:solid;
+    margin:2px
+}
+
+.digit-buttons {
+    display: flex;
+    /* flex-shrink: 0;  */
+    width: 300px;
+    flex-wrap: wrap;
+
+}
+
