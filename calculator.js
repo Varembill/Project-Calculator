@@ -10,16 +10,24 @@ const reset = document.querySelector(".reset-button");
 const decimal = document.querySelector(".decimal-button");
 const operator =document.querySelector(".operation-button");
 
-  digit.addEventListener("click", (e) => {
-    const btn = e.target.closest('button');
+
+
+
+
+  digit.addEventListener("click",enterNumber );
+  digit.addEventListener("keydown", enterNumber);
+
+function enterNumber(e) {
+  const btn = e.target.closest('button');
     if (btn) {
       calculation.push(btn.textContent);
       const result = calculation.join("");
-      console.log(result);
       screen.textContent = result;
 
     }
-  });
+
+}
+
 
   reset.addEventListener("click", () =>{
     calculation.length = 0;
