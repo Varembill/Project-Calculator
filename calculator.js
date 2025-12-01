@@ -20,7 +20,7 @@ function enterNumber(e) {
   const btn = e.target.closest('button');
     if (btn) {
       currentValue += btn.textContent;
-      displayResult();
+      
       //logging the currentValue
       // console.log(currentValue);
 
@@ -38,10 +38,10 @@ function putItIn () {
     displayResult();
   })
 
-function addNumber (a,b) {
-    return a + b ;
+// function addNumber (a,b) {
+//     return a + b ;
 
-}
+// }
 
 function operate(element) {
   const btn2 = element.target.closest('button').textContent;
@@ -50,6 +50,7 @@ function operate(element) {
     finalResult += +currentValue;
     currentValue = '';
     console.log(finalResult);
+    displayResult();
     
   }
 
@@ -57,5 +58,5 @@ function operate(element) {
 
 
 function displayResult () {
-  screen.textContent = currentValue;
+  screen.textContent = finalResult;
 }
