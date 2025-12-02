@@ -11,26 +11,53 @@ const screen = document.querySelector(".calculator-screen");
 const reset = document.querySelector(".reset-button");
 const decimal = document.querySelector(".decimal-button");
 const operators = document.querySelector(".operation-button");
+const equal = document.querySelector(".result-button");
 
-  digit.addEventListener("click",enterNumber );
-  digit.addEventListener("keydown", enterNumber);
-  operators.addEventListener("click",operate)
+digit.addEventListener("click",enterNumber );
+digit.addEventListener("keydown", enterNumber);
+operators.addEventListener("click",operate)
+equal.addEventListener("click",displayFinalResult)
 
 function enterNumber(e) {
   const btn = e.target.closest('button');
     if (btn) {
       currentValue += btn.textContent;
-      
+      screen.textContent = currentValue;
       //logging the currentValue
       // console.log(currentValue);
 
     }
 
-}
+};
 
-function putItIn () {
+function operate(element) {
+  const btn2 = element.target.closest('button').textContent;
+  if (btn2 === "+") {
+    // result2.push(currentValue);
 
-}
+    finalResult += +currentValue;
+
+    currentValue = '';
+
+    console.log(finalResult);
+
+    displayResult();
+    
+  } else if (btn2 === "-") {
+
+  } else if (btn2 === "*") {
+
+  } else if (btn2 === "/") {
+    
+  }
+
+
+};
+
+
+// function putItIn () {
+
+// }
 
   reset.addEventListener("click", () =>{
     currentValue = '';
@@ -43,20 +70,19 @@ function putItIn () {
 
 // }
 
-function operate(element) {
-  const btn2 = element.target.closest('button').textContent;
-  if (btn2 === "+") {
-    result2.push(currentValue);
-    finalResult += +currentValue;
-    currentValue = '';
-    console.log(finalResult);
-    displayResult();
-    
-  }
 
-}
 
 
 function displayResult () {
   screen.textContent = finalResult;
+}
+
+function displayOperation () {
+
+
+}
+
+
+function displayFinalResult () {
+  screen.textContent = finalResult + +currentValue;
 }
