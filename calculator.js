@@ -3,6 +3,7 @@ let firstValue = 0;
 let currentValue = '';
 let finalResult = 0;
 let operationDisplay = [];
+
 // const operationDisplayString = operationDisplay.join(" ");
 
 // UI interaction logic
@@ -15,7 +16,7 @@ const equal = document.querySelector(".result-button");
 
 // Event Listener 
 digit.addEventListener("click",enterNumber );
-digit.addEventListener("keydown", enterNumber);
+// digit.addEventListener("keydown", enterNumber);
 operators.addEventListener("click",operate)
 equal.addEventListener("click",displayFinalResult)
 
@@ -34,40 +35,19 @@ function enterNumber(e) {
 
 function operate(element) {
   const btn2 = element.target.closest('button').textContent;
-
-
   if (btn2 === "+") {
-    if (finalResult === 0) {
-        finalResult = +currentValue;
-    }
-
-    
-    // operationDisplay.push(currentValue + " +");
-    
-    
-    finalResult += +currentValue;
-
-    currentValue = '';
-
-    console.log(finalResult);
-    console.log(operationDisplay);
-
-    displayResult();
-    
+    if (currentValue === '') { // nếu input ban đầu bằng rỗng thì final result = 0, bỏ biến firstValue
+        finalResult = finalResult + 0;
+    } else {
+      Adding(+currentValue);
+    };
   } else if (btn2 === "-") {
-        
-    // operationDisplay.push(currentValue + " -");
-    
-    finalResult += +currentValue;
-
-    currentValue = '';
-
-    console.log(finalResult);
-    console.log(operationDisplay);
-
-    displayResult();
-
-
+        if (firstValue === 0) {
+        firstValue = +currentValue;
+        currentValue = '';
+    } else {
+      Minus(+currentValue);
+    }
   } else if (btn2 === "*") {
 
   } else if (btn2 === "/") {
@@ -77,15 +57,21 @@ function operate(element) {
 };
 
 
-  reset.addEventListener("click", () =>{
+reset.addEventListener("click", () =>{
     currentValue = '';
     finalResult = 0;
     firstValue = 0;
     screen.textContent = '0';
-    operationDisplay = [];
-    
-  })
+  });
 
+function Adding(number) {
+    firstValue += number;
+    currentValue = '';
+};
+function Minus(number) {
+    firstValue -= number;
+    currentValue = '';
+}
 
 function displayResult () {
   // screen.textContent = finalResult;
@@ -97,5 +83,5 @@ function displayOperation () {
 }
 
 function displayFinalResult () {
-  screen.textContent = finalResult + +currentValue;
+
 }
