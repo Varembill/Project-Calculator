@@ -1,8 +1,9 @@
 
-let firstValue = '';
-let secondValue = '';
-let result = 0;
+let firstValue = 0;
+let secondValue = 0;
+let result = firstValue + secondValue;
 let operationDisplay = [];
+let currentValue = '';
 
 
 
@@ -29,17 +30,20 @@ function enterNumber(e) {
 };
 
 function operate(element) {
-  const btn2 = element.target.closet("button");
+  const btn2 = element.target.closest('button').textContent;
   if (btn2 === "+") {
+    if (secondValue) {
       firstValue = Number(currentValue);
-      console.log(add(firstValue,0));
-      
+      console.log(add());
+      currentValue = '';
+    }
+
   }
 };
 
 
-function add(firstValue,secondValue) {
-  return firstValue + secondValue;
+function add() {
+  return Number(firstValue + secondValue);
 };
 function subtract(firstValue,secondValue) {
   return firstValue - secondValue;
@@ -79,6 +83,8 @@ function divide(firstValue,secondValue) {
 
 reset.addEventListener("click", () =>{
     currentValue = '';
+    firstValue = 0;
+    secondValue = 0;
     result = 0;
     screen.textContent = '0';
   });
