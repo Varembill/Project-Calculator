@@ -1,5 +1,6 @@
 
-let currentValue = '';
+let firstValue = '';
+let secondValue = '';
 let result = 0;
 let operationDisplay = [];
 
@@ -26,6 +27,31 @@ function enterNumber(e) {
     }
 
 };
+
+function operate(element) {
+  const btn2 = element.target.closet("button");
+  if (btn2 === "+") {
+      firstValue = Number(currentValue);
+      console.log(add(firstValue,0));
+      
+  }
+};
+
+
+function add(firstValue,secondValue) {
+  return firstValue + secondValue;
+};
+function subtract(firstValue,secondValue) {
+  return firstValue - secondValue;
+};
+function multiply(firstValue,secondValue) {
+  return firstValue * secondValue;
+};
+function divide(firstValue,secondValue) {
+  return firstValue / secondValue;
+};
+
+
 
 
 // wrong logic
