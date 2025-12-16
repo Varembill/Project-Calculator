@@ -1,7 +1,7 @@
 
 let firstValue = 0;
 let secondValue = 0;
-let result = firstValue + secondValue;
+// let result = firstValue + secondValue;
 let operationDisplay = [];
 let currentValue = '';
 
@@ -31,19 +31,31 @@ function enterNumber(e) {
 
 function operate(element) {
   const btn2 = element.target.closest('button').textContent;
+  helper();
   if (btn2 === "+") {
-    if (secondValue) {
-      firstValue = Number(currentValue);
-      console.log(add());
-      currentValue = '';
-    }
-
+      
+      
+      add();
+      
   }
 };
 
+function helper (){
+  if (firstValue !== 0) {
+    secondValue = currentValue;
+  } else {
+    firstValue = currentValue;
+  }
+  currentValue = "";
+}
 
 function add() {
-  return Number(firstValue + secondValue);
+  if (firstValue && secondValue) {
+    console.log(Number(firstValue) + Number(secondValue));
+    firstValue = 0;
+    secondValue = 0;
+
+  }
 };
 function subtract(firstValue,secondValue) {
   return firstValue - secondValue;
