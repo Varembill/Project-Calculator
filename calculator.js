@@ -1,6 +1,8 @@
 
 let firstValue = 0;
 let secondValue = 0;
+let result = 0;
+let currentOperation = ''
 // let result = firstValue + secondValue;
 let operationDisplay = [];
 let currentValue = '';
@@ -29,36 +31,45 @@ function enterNumber(e) {
 
 };
 
+
 function operate(element) {
   const btn2 = element.target.closest('button').textContent;
-  helper();
-  if (btn2 === "+") {
-      
-      
-      add();
-      
+  helper(btn2);
+
+  if(currentOperation === "+") {
+      add() 
   }
+
+
 };
 
-function helper (){
+
+
+function helper (pheptinh){
   if (firstValue !== 0) {
     secondValue = currentValue;
   } else {
-    firstValue = currentValue;
+      firstValue = currentValue;
+      currentOperation = pheptinh;
   }
   currentValue = "";
 }
 
 function add() {
   if (firstValue && secondValue) {
-    console.log(Number(firstValue) + Number(secondValue));
+    // console.log(Number(firstValue) + Number(secondValue));
+    result += Number(firstValue) + Number(secondValue);
+    console.log(result);
     firstValue = 0;
     secondValue = 0;
-
-  }
+  }    
 };
 function subtract(firstValue,secondValue) {
-  return firstValue - secondValue;
+    // console.log(Number(firstValue) + Number(secondValue));
+    result += Number(firstValue) + Number(secondValue);
+    console.log(result);
+    firstValue = 0;
+    secondValue = 0;
 };
 function multiply(firstValue,secondValue) {
   return firstValue * secondValue;
