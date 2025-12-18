@@ -33,6 +33,9 @@ function enterNumber(e) {
 
 
 function operate(element) {
+  if (currentValue === '') {
+    currentValue = 0;
+  };
   const btn2 = element.target.closest('button').textContent;
   helper(btn2);
 
