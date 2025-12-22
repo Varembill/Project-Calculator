@@ -1,11 +1,14 @@
 
-let firstValue = 0;
-let secondValue = 0;
-let result = 0;
-let currentOperation = ''
-// let result = firstValue + secondValue;
-let operationDisplay = [];
+// logic of this Project: just calcualt
+
+
+
+
 let currentValue = '';
+let result ;
+let currentOperation = ''
+
+
 
 
 
@@ -32,16 +35,23 @@ function enterNumber(e) {
 };
 
 
-function operate(element) {
-  if (currentValue === '') {
-    currentValue = 0;
-  };
-  const btn2 = element.target.closest('button').textContent;
-  helper(btn2);
 
-  if(currentOperation === "+") {
-      add() 
-  }
+
+function operate(element) {
+const btn2 = element.target.closest('button').textContent;
+  
+  // if (currentOperation === "") {
+  //         currentOperation = btn2;
+  // };
+  // if (currentValue === '') {
+  //     secondValue = Number(0);
+  // } else {
+  //     secondValue = Number(currentValue);
+  // };
+
+  // helper(currentOperation);
+
+
 
 
 };
@@ -49,27 +59,26 @@ function operate(element) {
 
 
 function helper (pheptinh){
-  if (firstValue !== 0) {
-    secondValue = currentValue;
-  } else {
-      firstValue = currentValue;
-      currentOperation = pheptinh;
+  if (result === "") {
+    result = Number(currentValue) ;
+
   }
-  currentValue = "";
+
+  }
+
 }
 
 function add() {
-  if (firstValue && secondValue) {
+  if (secondValue) {
     // console.log(Number(firstValue) + Number(secondValue));
-    result += Number(firstValue) + Number(secondValue);
+    result += Number(secondValue);
     console.log(result);
-    firstValue = 0;
-    secondValue = 0;
+    secondValue = "";
   }    
 };
 function subtract(firstValue,secondValue) {
     // console.log(Number(firstValue) + Number(secondValue));
-    result += Number(firstValue) + Number(secondValue);
+    result += Number(firstValue) - Number(secondValue);
     console.log(result);
     firstValue = 0;
     secondValue = 0;
@@ -80,32 +89,6 @@ function multiply(firstValue,secondValue) {
 function divide(firstValue,secondValue) {
   return firstValue / secondValue;
 };
-
-
-
-
-// wrong logic
-// function operate(element) {
-//   const btn2 = element.target.closest('button').textContent;
-//   const middle =currentValue
-
-//   if currentValue
-
-//     if (btn2 === "+") {
-//      // nếu input ban đầu bằng rỗng thì final result = 0, bỏ biến firstValue
-//         result += +currentValue;
-//         currentValue = '';
-      
-//     } else if (btn2 === "-") {
-//         result -= +currentValue;
-//         currentValue = '';
-//       }
-//     }
-
-
-
-
-
 
 reset.addEventListener("click", () =>{
     currentValue = '';
@@ -119,5 +102,5 @@ reset.addEventListener("click", () =>{
 
 
 function displayFinalResult () {
-  screen.textContent = result + +currentValue;
+  screen.textContent = result;
 }
