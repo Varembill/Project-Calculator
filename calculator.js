@@ -1,16 +1,8 @@
 
 // logic of this Project: just calcualt
-
-
-
-
 let currentValue = '';
-let result ;
-let currentOperation = ''
-
-
-
-
+let result = '';
+let currentOperation = null;
 
 // UI interaction logic
 const digit = document.querySelector(".digit-buttons");
@@ -34,24 +26,16 @@ function enterNumber(e) {
 
 };
 
-
-
-
 function operate(element) {
-const btn2 = element.target.closest('button').textContent;
+  const btn2 = element.target.closest('button').textContent;
+
+    
+  //sau khi bấm operator thì sẽ lưu lại thông 
+  // tin của operation đó và thông tin đó chỉ 
+  // bị thay đổi khi đã hoàn thành xong phép tính
   
-  // if (currentOperation === "") {
-  //         currentOperation = btn2;
-  // };
-  // if (currentValue === '') {
-  //     secondValue = Number(0);
-  // } else {
-  //     secondValue = Number(currentValue);
-  // };
-
-  // helper(currentOperation);
-
-
+  if
+ 
 
 
 };
@@ -66,41 +50,22 @@ function helper (pheptinh){
 
   }
 
+
+function calculate () {
+
 }
 
-function add() {
-  if (secondValue) {
-    // console.log(Number(firstValue) + Number(secondValue));
-    result += Number(secondValue);
-    console.log(result);
-    secondValue = "";
-  }    
-};
-function subtract(firstValue,secondValue) {
-    // console.log(Number(firstValue) + Number(secondValue));
-    result += Number(firstValue) - Number(secondValue);
-    console.log(result);
-    firstValue = 0;
-    secondValue = 0;
-};
-function multiply(firstValue,secondValue) {
-  return firstValue * secondValue;
-};
-function divide(firstValue,secondValue) {
-  return firstValue / secondValue;
-};
 
 reset.addEventListener("click", () =>{
     currentValue = '';
-    firstValue = 0;
-    secondValue = 0;
     result = 0;
     screen.textContent = '0';
   });
 
-
-
-
 function displayFinalResult () {
   screen.textContent = result;
 }
+
+
+
+

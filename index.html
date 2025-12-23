@@ -42,3 +42,50 @@
 
 </body>
 </html>
+
+
+<script>
+let currentValue = "";
+let previousValue = "";
+let operator = null;
+
+function inputNumber(num) {
+  currentValue += num;
+  updateDisplay(currentValue);
+}
+
+function inputOperator(op) {
+  if (currentValue === "") return;
+  if (previousValue !== "") calculate();
+  operator = op;
+  previousValue = currentValue;
+  currentValue = "";
+}
+
+function calculate() {
+  const prev = Number(previousValue);
+  const curr = Number(currentValue);
+  let result;
+
+  if (operator === "+") result = prev + curr;
+  if (operator === "-") result = prev - curr;
+  if (operator === "*") result = prev * curr;
+  if (operator === "/") result = curr === 0 ? "Error" : prev / curr;
+
+  currentValue = result.toString();
+  previousValue = "";
+  operator = null;
+  updateDisplay(currentValue);
+}
+
+function clearAll() {
+  currentValue = "";
+  previousValue = "";
+  operator = null;
+  updateDisplay("0");
+}
+
+function updateDisplay(value) {
+  document.getElementById("display").textContent = value;
+}
+</script>
